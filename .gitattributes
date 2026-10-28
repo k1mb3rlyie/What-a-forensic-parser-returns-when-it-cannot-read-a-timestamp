@@ -1,0 +1,28 @@
+# The thirteen .lnk files in cases/ are the ground truth of this study: their
+# exact bytes are the measurement. As they stand, none of them contains a CR or
+# LF byte, so there is nothing for a line-ending conversion to rewrite, and all
+# of them carry NUL bytes well inside the first 8000, so Git would classify
+# them as binary on its own. This line is therefore insurance rather than a
+# repair. It removes the dependency on content detection, it holds if a later
+# case is added whose bytes detection reads differently, and it keeps a 298-byte
+# file from being rendered as a text diff in a pull request. Integrity is
+# checked properly by verify_corpus.py against SHA256SUMS, which is the part
+# that would actually catch damage.
+*.lnk binary
+*.docx binary
+*.pdf binary
+*.zip binary
+
+# Records and code keep LF on every platform, so a clone on Windows produces
+# the same bytes the study was run against.
+*.jsonl text eol=lf
+*.json text eol=lf
+*.py text eol=lf
+*.sh text eol=lf
+*.md text eol=lf
+*.tex text eol=lf
+
+# PowerShell is the exception: it is run by Windows and wants CRLF.
+*.ps1 text eol=crlf
+
+* text=auto
