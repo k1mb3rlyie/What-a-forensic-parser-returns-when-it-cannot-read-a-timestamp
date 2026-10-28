@@ -12,7 +12,7 @@ Five readers were measured on Windows 11 and three of them on Linux under WSL2, 
 
 Requirements: Python 3.x, a Windows 11 host with WSL2 for the full grid, and the five readers (installed per-environment by `setup_envs.py`). Interpreter and reader versions are recorded by `claims.py`.
 
-Full instructions are in [RUN.md](RUN.md). In short:
+Run it as follows:
 
 ```
 python setup_envs.py          # one virtual environment per reader
