@@ -1,0 +1,320 @@
+{
+  "generated": "2026-10-24T13:40:10.673138+00:00",
+  "cases": {
+    "T0": {
+      "file": "T0.lnk",
+      "kind": "timestamp",
+      "represents": "ordinary modern timestamps, three distinct values",
+      "expectation": "return each field's own value",
+      "expected_fields": {
+        "creation_time": {
+          "filetime": 134179533300000000,
+          "decoded_utc": "2026-03-14T09:15:30Z",
+          "unix": 1773479730.0
+        },
+        "access_time": {
+          "filetime": 134196255010000000,
+          "decoded_utc": "2026-04-02T17:45:01Z",
+          "unix": 1775151901.0
+        },
+        "write_time": {
+          "filetime": 134192557640000000,
+          "decoded_utc": "2026-03-29T11:02:44Z",
+          "unix": 1774782164.0
+        }
+      },
+      "icon_index": 3
+    },
+    "T1": {
+      "file": "T1.lnk",
+      "kind": "timestamp",
+      "represents": "unset, not recorded",
+      "expectation": "report absent, or the 1601 epoch; never a current date",
+      "expected_fields": {
+        "creation_time": {
+          "filetime": 0,
+          "decoded_utc": "1601-01-01T00:00:00Z",
+          "unix": -11644473600.0
+        },
+        "access_time": {
+          "filetime": 0,
+          "decoded_utc": "1601-01-01T00:00:00Z",
+          "unix": -11644473600.0
+        },
+        "write_time": {
+          "filetime": 0,
+          "decoded_utc": "1601-01-01T00:00:00Z",
+          "unix": -11644473600.0
+        }
+      },
+      "icon_index": 3
+    },
+    "T2": {
+      "file": "T2.lnk",
+      "kind": "timestamp",
+      "represents": "beyond the representable range (year 60056)",
+      "expectation": "signal an error",
+      "expected_fields": {
+        "creation_time": {
+          "filetime": 18446744073709551615,
+          "decoded_utc": null,
+          "unix": 1833029933770.955
+        },
+        "access_time": {
+          "filetime": 18446744073709551615,
+          "decoded_utc": null,
+          "unix": 1833029933770.955
+        },
+        "write_time": {
+          "filetime": 18446744073709551615,
+          "decoded_utc": null,
+          "unix": 1833029933770.955
+        }
+      },
+      "icon_index": 3
+    },
+    "T3": {
+      "file": "T3.lnk",
+      "kind": "timestamp",
+      "represents": "a valid, legitimate pre-epoch date",
+      "expectation": "return 1950-06-01 12:00:00Z",
+      "expected_fields": {
+        "creation_time": {
+          "filetime": 110264112000000000,
+          "decoded_utc": "1950-06-01T12:00:00Z",
+          "unix": -618062400.0
+        },
+        "access_time": {
+          "filetime": 110264112000000000,
+          "decoded_utc": "1950-06-01T12:00:00Z",
+          "unix": -618062400.0
+        },
+        "write_time": {
+          "filetime": 110264112000000000,
+          "decoded_utc": "1950-06-01T12:00:00Z",
+          "unix": -618062400.0
+        }
+      },
+      "icon_index": 3
+    },
+    "T4": {
+      "file": "T4.lnk",
+      "kind": "timestamp",
+      "represents": "one second before the Unix epoch",
+      "expectation": "return 1969-12-31 23:59:59Z",
+      "expected_fields": {
+        "creation_time": {
+          "filetime": 116444735990000000,
+          "decoded_utc": "1969-12-31T23:59:59Z",
+          "unix": -1.0
+        },
+        "access_time": {
+          "filetime": 116444735990000000,
+          "decoded_utc": "1969-12-31T23:59:59Z",
+          "unix": -1.0
+        },
+        "write_time": {
+          "filetime": 116444735990000000,
+          "decoded_utc": "1969-12-31T23:59:59Z",
+          "unix": -1.0
+        }
+      },
+      "icon_index": 3
+    },
+    "T5": {
+      "file": "T5.lnk",
+      "kind": "timestamp",
+      "represents": "a year after the Unix epoch",
+      "expectation": "return 1971-01-01 00:00:01Z",
+      "expected_fields": {
+        "creation_time": {
+          "filetime": 116760096010000000,
+          "decoded_utc": "1971-01-01T00:00:01Z",
+          "unix": 31536001.0
+        },
+        "access_time": {
+          "filetime": 116760096010000000,
+          "decoded_utc": "1971-01-01T00:00:01Z",
+          "unix": 31536001.0
+        },
+        "write_time": {
+          "filetime": 116760096010000000,
+          "decoded_utc": "1971-01-01T00:00:01Z",
+          "unix": 31536001.0
+        }
+      },
+      "icon_index": 3
+    },
+    "T6": {
+      "file": "T6.lnk",
+      "kind": "timestamp",
+      "represents": "one tick past the FILETIME epoch",
+      "expectation": "return the 1601 epoch, distinguishable from T1",
+      "expected_fields": {
+        "creation_time": {
+          "filetime": 1,
+          "decoded_utc": "1601-01-01T00:00:00Z",
+          "unix": -11644473600.0
+        },
+        "access_time": {
+          "filetime": 1,
+          "decoded_utc": "1601-01-01T00:00:00Z",
+          "unix": -11644473600.0
+        },
+        "write_time": {
+          "filetime": 1,
+          "decoded_utc": "1601-01-01T00:00:00Z",
+          "unix": -11644473600.0
+        }
+      },
+      "icon_index": 3
+    },
+    "T7": {
+      "file": "T7.lnk",
+      "kind": "timestamp",
+      "represents": "the Unix epoch exactly",
+      "expectation": "return 1970-01-01 00:00:00Z",
+      "expected_fields": {
+        "creation_time": {
+          "filetime": 116444736000000000,
+          "decoded_utc": "1970-01-01T00:00:00Z",
+          "unix": 0.0
+        },
+        "access_time": {
+          "filetime": 116444736000000000,
+          "decoded_utc": "1970-01-01T00:00:00Z",
+          "unix": 0.0
+        },
+        "write_time": {
+          "filetime": 116444736000000000,
+          "decoded_utc": "1970-01-01T00:00:00Z",
+          "unix": 0.0
+        }
+      },
+      "icon_index": 3
+    },
+    "T8": {
+      "file": "T8.lnk",
+      "kind": "timestamp",
+      "represents": "one second after the Unix epoch",
+      "expectation": "return 1970-01-01 00:00:01Z",
+      "expected_fields": {
+        "creation_time": {
+          "filetime": 116444736010000000,
+          "decoded_utc": "1970-01-01T00:00:01Z",
+          "unix": 1.0
+        },
+        "access_time": {
+          "filetime": 116444736010000000,
+          "decoded_utc": "1970-01-01T00:00:01Z",
+          "unix": 1.0
+        },
+        "write_time": {
+          "filetime": 116444736010000000,
+          "decoded_utc": "1970-01-01T00:00:01Z",
+          "unix": 1.0
+        }
+      },
+      "icon_index": 3
+    },
+    "T9": {
+      "file": "T9.lnk",
+      "kind": "timestamp",
+      "represents": "one day after the Unix epoch, clear of any local offset",
+      "expectation": "return 1970-01-02 00:00:00Z",
+      "expected_fields": {
+        "creation_time": {
+          "filetime": 116445600000000000,
+          "decoded_utc": "1970-01-02T00:00:00Z",
+          "unix": 86400.0
+        },
+        "access_time": {
+          "filetime": 116445600000000000,
+          "decoded_utc": "1970-01-02T00:00:00Z",
+          "unix": 86400.0
+        },
+        "write_time": {
+          "filetime": 116445600000000000,
+          "decoded_utc": "1970-01-02T00:00:00Z",
+          "unix": 86400.0
+        }
+      },
+      "icon_index": 3
+    },
+    "I0": {
+      "file": "I0.lnk",
+      "kind": "icon_index",
+      "represents": "IconIndex = 0 (signed 32-bit per MS-SHLLINK)",
+      "expectation": "return 0",
+      "expected_icon_index": 0,
+      "misread_if_unsigned": 0,
+      "expected_fields": {
+        "creation_time": {
+          "filetime": 134179533300000000,
+          "decoded_utc": "2026-03-14T09:15:30Z",
+          "unix": 1773479730.0
+        },
+        "access_time": {
+          "filetime": 134196255010000000,
+          "decoded_utc": "2026-04-02T17:45:01Z",
+          "unix": 1775151901.0
+        },
+        "write_time": {
+          "filetime": 134192557640000000,
+          "decoded_utc": "2026-03-29T11:02:44Z",
+          "unix": 1774782164.0
+        }
+      }
+    },
+    "I1": {
+      "file": "I1.lnk",
+      "kind": "icon_index",
+      "represents": "IconIndex = -1 (signed 32-bit per MS-SHLLINK)",
+      "expectation": "return -1",
+      "expected_icon_index": -1,
+      "misread_if_unsigned": 4294967295,
+      "expected_fields": {
+        "creation_time": {
+          "filetime": 134179533300000000,
+          "decoded_utc": "2026-03-14T09:15:30Z",
+          "unix": 1773479730.0
+        },
+        "access_time": {
+          "filetime": 134196255010000000,
+          "decoded_utc": "2026-04-02T17:45:01Z",
+          "unix": 1775151901.0
+        },
+        "write_time": {
+          "filetime": 134192557640000000,
+          "decoded_utc": "2026-03-29T11:02:44Z",
+          "unix": 1774782164.0
+        }
+      }
+    },
+    "I2": {
+      "file": "I2.lnk",
+      "kind": "icon_index",
+      "represents": "IconIndex = -7 (signed 32-bit per MS-SHLLINK)",
+      "expectation": "return -7",
+      "expected_icon_index": -7,
+      "misread_if_unsigned": 4294967289,
+      "expected_fields": {
+        "creation_time": {
+          "filetime": 134179533300000000,
+          "decoded_utc": "2026-03-14T09:15:30Z",
+          "unix": 1773479730.0
+        },
+        "access_time": {
+          "filetime": 134196255010000000,
+          "decoded_utc": "2026-04-02T17:45:01Z",
+          "unix": 1775151901.0
+        },
+        "write_time": {
+          "filetime": 134192557640000000,
+          "decoded_utc": "2026-03-29T11:02:44Z",
+          "unix": 1774782164.0
+        }
+      }
+    }
+  }
+}
