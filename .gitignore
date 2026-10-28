@@ -1,0 +1,122 @@
+# ---------------------------------------------------------------------------
+# Not yours to publish yet
+# ---------------------------------------------------------------------------
+# The manuscript is under submission and the DFIR Review note is under review.
+# A repository is public the moment it is published, and a venue's preprint
+# policy is not something to discover afterwards. Keep the paper out until it
+# is accepted, then add the accepted version if the venue permits it.
+#
+# This is also why check_paper.py takes the manuscript as an argument rather
+# than finding it in the tree: the verification scripts are the artefact, the
+# paper is not.
+*.tex
+*.docx
+*.pdf
+paper.md
+paper_for_test.md
+
+# Correspondence. Reviews, rebuttals, cover letters and decision letters are
+# between you and the venue.
+review*
+rebuttal*
+cover*letter*
+*decision*
+correspondence/
+
+# ---------------------------------------------------------------------------
+# Generated, and would become a second source of truth
+# ---------------------------------------------------------------------------
+# claims.json and CLAIMS.md are recomputed from results/ by claims.py. A
+# committed copy can drift from the records it was derived from, and then two
+# files disagree and nothing says which is right. results/ is the source.
+claims.json
+CLAIMS.md
+
+# Two files look generated and are not, so they are kept. Both record an
+# observation that cannot be taken again, which is the opposite of a derived
+# file: SHA256SUMS is the corpus as it was measured, and release_data.json is
+# PyPI's release history as it stood on the date it was fetched. A release can
+# be yanked and a package deleted, and then the provenance section rests on a
+# snapshot nobody else can reproduce. claims.json is excluded because it is
+# derived from results/, which is committed; these are derived from nothing
+# that lives here.
+!SHA256SUMS
+!release_data.json
+
+# ---------------------------------------------------------------------------
+# Environments
+# ---------------------------------------------------------------------------
+# A venv stores the absolute path of the interpreter that built it, so a
+# committed one is useless to anyone else and large. setup_envs.py rebuilds
+# them in about a minute.
+envs/
+envs-posix/
+envs-win/
+.venv/
+venv/
+
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# ---------------------------------------------------------------------------
+# Superseded
+# ---------------------------------------------------------------------------
+# setup_envs.py works on both platforms. setup.ps1 walks a reader straight
+# into the execution-policy wall, so shipping it invites them into a hole.
+setup.ps1
+setup.sh
+
+# ---------------------------------------------------------------------------
+# Credentials
+# ---------------------------------------------------------------------------
+# Nothing in this study uses any, and no key has ever been written to disk
+# here. The habit is still cheap and the cost of breaking it once is not.
+.env
+.env.*
+*.key
+*.pem
+secrets.*
+credentials*
+
+# ---------------------------------------------------------------------------
+# Noise
+# ---------------------------------------------------------------------------
+# Word lock files carry the author's name.
+~$*
+*.tmp
+*.bak
+*.orig
+
+# LaTeX build products
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.bbl
+*.blg
+est/
+
+# Screenshots and scratch images
+*.png
+*.jpg
+*.jpeg
+
+# Files created by pasting a Windows settings path into bash, where > is a
+# redirect. Harmless, and not something to publish.
+/App
+/Apps
+/Advanced
+/python3
+/tzutil
+/^C
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
