@@ -1,0 +1,89 @@
+# Manuscript and correspondence. Under submission; not public yet.
+*.tex
+*.docx
+*.pdf
+paper.md
+paper_for_test.md
+review*
+rebuttal*
+cover*letter*
+*decision*
+correspondence/
+
+# Manuscript tooling. Checks figures in the paper against the records; of no
+# use without the paper.
+check_paper.py
+verify_checker.py
+claims.py
+regen_check.sh
+
+# Derived from results/, which is committed. Recompute rather than trust a
+# stale copy.
+claims.json
+CLAIMS.md
+
+# These two look derived and are not. Each records something that cannot be
+# observed again: the corpus as measured, and PyPI's release history on the
+# date fetched.
+!SHA256SUMS
+!release_data.json
+
+# Virtual environments hold absolute interpreter paths. setup_envs.py rebuilds
+# them in about a minute.
+envs/
+envs-posix/
+envs-win/
+.venv/
+venv/
+
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Superseded by setup_envs.py, which works on both platforms.
+setup.ps1
+setup.sh
+
+# Credentials. Nothing here uses any; the habit is cheap.
+.env
+.env.*
+*.key
+*.pem
+secrets.*
+credentials*
+
+# Word lock files carry the author name.
+~$*
+*.tmp
+*.bak
+*.orig
+
+# LaTeX build products
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.bbl
+*.blg
+est/
+
+*.png
+*.jpg
+*.jpeg
+
+# Created by pasting a Windows settings path into bash, where > redirects.
+/App
+/Apps
+/Advanced
+/python3
+/tzutil
+/^C
+
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
