@@ -67,6 +67,20 @@ python vercheck.py                 # release history, from PyPI
 passes and the per-reader totals. Those are the paper's tables. Nothing is
 copied between the two by hand.
 
+A second program recomputes the headline figures without sharing any of that
+grading code, so a defect in `tabulate.py` cannot quietly reproduce itself:
+
+```
+python recheck.py cases/manifest.json \
+    results/run_w2-lagos.jsonl results/run_w2-utc.jsonl \
+    results/run_l2-lagos.jsonl results/run_l2-utc.jsonl \
+    results/run_l2-newyork.jsonl results/run_l2-kolkata.jsonl
+```
+
+It reports the observation count, the fabricated cases, the number graded
+correct and how close any of them comes to the one-second tolerance, the
+naive-reading split, and the two-pass drift against the measured interval.
+
 
 On Windows, PowerShell does not expand `results/*.jsonl`; name the files or run
 these under WSL.
@@ -80,11 +94,13 @@ these under WSL.
 | `adapters/` | One per reader; each records what was returned without judging it |
 | `run_study.py` | Runs the grid twice with a measured pause between passes |
 | `tabulate.py` | Grades the records; collection and grading are deliberately separate |
-| `results/` | Raw records from every run, including an archived earlier corpus |
+| `results/` | Raw records, one file per run: six main runs and three release runs |
 | `predict_windows.py` | Demonstrates the Windows conversion path from a Linux host |
 | `setup_envs.py` | Builds the environments on either platform |
 | `verify_corpus.py`, `SHA256SUMS` | Confirms a clone holds the corpus as measured |
 | `vercheck.py`, `release_data.json` | Release history as published on PyPI |
+| `recheck.py` | Recomputes the reported figures without `tabulate.py`'s grading code |
+| `RELEASE_ARTEFACTS.json` | SHA-256 of every pinned distribution artefact, from PyPI |
 
 ## Method in one paragraph
 
